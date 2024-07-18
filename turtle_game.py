@@ -12,7 +12,8 @@ font = pg.font.Font(None, 36)
 
 def draw(turt):
     win.blit(screen, (0, 0))
-    win.blit(turt.image, (turt.x, turt.y))
+
+    win.blit(turt.image, (turt.rect.x, turt.rect.y))
     
     pg.display.update()
 
@@ -20,6 +21,8 @@ def main():
     turt=turtle(100,100)
     running = True
     move_count=0
+    turn_left=0
+    turn_right=0
 
     while running:
         for event in pg.event.get():
@@ -28,19 +31,29 @@ def main():
         clock.tick(60)
 
         if move_count>0:
-            mover_count+=1
+            move_count+=1
         if move_count==5:
             move_count=0
+        if turn_left>0:
+            turn_left+=1
+        if turn_left==50:
+            turn_left=0
+        if turn_right>0:
+            turn_right+=1
+        if turn_right==50:
+            turn_right=0
 
         draw(turt)
 
         kyes=pg.key.get_pressed()
-        if kyes[pg.K_LEFT]:
-            turt.rotate_left
-        if kyes[pg.K_RIGHT]:
-            turt.rotate_right
-        if kyes[pg.K_UP]:
-            turt.move_forward
+        if kyes[pg.K_LEFT] and turn_left==0:
+            turt.rotate_left(90)
+            turn_left=1
+        if kyes[pg.K_RIGHT] and turn_right==0:
+            turt.rotate_right(-90)
+            turn_right=1
+        if kyes[pg.K_UP] and move_count==0:
+            turt.move_forward(turt.speed)
             move_count=1
         
 
