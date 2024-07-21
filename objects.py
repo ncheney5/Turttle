@@ -4,7 +4,7 @@ import math
 class turtle:
     def __init__(self, x, y):
         self.origanl_image = pygame.image.load("turtle.png")
-        self.image2 = pygame.transform.scale_by(self.origanl_image, 0.2)
+        self.image2 = pygame.transform.scale_by(self.origanl_image, 0.15)
         self.image = self.image2
         self.rect = self.image.get_rect()
         self.center_x = self.rect.centerx
@@ -57,4 +57,36 @@ class box:
         self.x = x
         self.y = y
         self.image = pygame.image.load("box.png")
+
+class mouse:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+        self.image = pygame.image.load("mouse.png")
+
+    
+class box_1:
+    def __init__(self):
+        self.image=pygame.Rect(0, 0, 50, 50)
+
+    def draw(self, win):
+        pygame.draw.rect(win, 'black', (900, 100, 100, 100), 0)
+
+class box_2:
+    def __init__(self):
+        self.image=pygame.Rect(0, 0, 50, 50)
+
+    def draw(self, win):
+        pygame.draw.rect(win, 'black', (900, 250, 100, 100), 0)
+
+class box_3:
+    def __init__(self):
+        self.image=pygame.Rect(0, 0, 50, 50)
+
+    def draw(self, win):
+        pygame.draw.rect(win, 'black', (900, 400, 100, 100), 0)
+
+# class gem:
+#     def __init__(self):
+#         pygame.rect = pygame.rect(0, 0, 50, 50)
 
