@@ -3,17 +3,21 @@ from objects import turtle,tower,icetower,box
 import time
 
 pg.init()
-win=pg.display.set_mode((800,600))
+win=pg.display.set_mode((600,600))
 pg.display.set_caption('Turtle Game')
 image = pg.image.load('background.jpeg')
-screen= pg.transform.scale(image, (800, 600))
+screen= pg.transform.scale(image, (600, 600))
 clock = pg.time.Clock()
 font = pg.font.Font(None, 36)
 
-def draw(turt):
+def draw(turt,tile_size=50):
     win.blit(screen, (0, 0))
 
     win.blit(turt.image, (turt.rect.x, turt.rect.y))
+
+    # for i in range(100,550,tile_size):
+    #     pg.draw.line(win,'black', (i,500), (i,100))
+    #     pg.draw.line(win,'black', (500,i), (100,i))
     
     pg.display.update()
 
