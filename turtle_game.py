@@ -17,7 +17,8 @@ sidebar=pg.transform.scale(sidebar1, (400, 900))
 screen_tint=pg.transform.scale(pg.image.load('side_bar.jpeg'), (720, 720))
 screen_tint.set_alpha(60)
 
-def draw(turt,set_1,set_2,set_3,tile_size=50,):
+def draw(turt,set_1,set_2,set_3,mouse,tile_size=50):
+    pg.mouse.set_visible(False)
     win.blit(screen, (0, 0))
     win.blit(screen_tint, (15,15))
     win.blit(grid, (15, 15))
@@ -28,6 +29,7 @@ def draw(turt,set_1,set_2,set_3,tile_size=50,):
     set_3.draw(win)
 
     win.blit(turt.image, (turt.rect.x, turt.rect.y))
+    win.blit(mouse.image, (mouse.x, mouse.y))
 
     # for i in range(100,550,tile_size):
     #     pg.draw.line(win,'black', (i,500), (i,100))
@@ -64,7 +66,9 @@ def main():
         if turn_right==50:
             turn_right=0
 
-        draw(turt,set_1,set_2,set_3)
+        mouse.x=pg.mouse.get_pos()[0]
+        mouse.y=pg.mouse.get_pos()[1]
+        draw(turt,set_1,set_2,set_3,mouse)
 
         kyes=pg.key.get_pressed()
         if kyes[pg.K_LEFT] and turn_left==0:

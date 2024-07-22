@@ -62,29 +62,38 @@ class mouse:
     def __init__(self, x, y):
         self.x = x
         self.y = y
-        self.image = pygame.image.load("mouse.png")
+        self.image = pygame.transform.scale_by(pygame.image.load("mouse.png"), 0.3)
+
+    def darw(self, win):
+        win.blit(self.image, (self.x, self.y))
 
     
 class box_1:
     def __init__(self):
         self.image=pygame.Rect(0, 0, 50, 50)
+        self.image_2=pygame.transform.scale(pygame.image.load('ice.png'),(100,100))
 
     def draw(self, win):
         pygame.draw.rect(win, 'black', (900, 100, 100, 100), 0)
+        win.blit(self.image_2, (900, 100))
 
 class box_2:
     def __init__(self):
         self.image=pygame.Rect(0, 0, 50, 50)
+        self.image_2=pygame.transform.scale(pygame.image.load('tower.png'), (100, 100))
 
     def draw(self, win):
         pygame.draw.rect(win, 'black', (900, 250, 100, 100), 0)
+        win.blit(self.image_2, (900, 250))
 
 class box_3:
     def __init__(self):
         self.image=pygame.Rect(0, 0, 50, 50)
+        self.image_2=pygame.transform.scale_by(pygame.image.load('box.png'), 0.4)
 
     def draw(self, win):
         pygame.draw.rect(win, 'black', (900, 400, 100, 100), 0)
+        win.blit(self.image_2, (895, 415))
 
 # class gem:
 #     def __init__(self):
