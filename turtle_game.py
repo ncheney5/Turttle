@@ -14,10 +14,12 @@ mouse=mouse(0,0)
 sidebar1=pg.transform.rotate(pg.image.load('side_bar.jpeg'),90)
 sidebar1.set_alpha(150)
 sidebar=pg.transform.scale(sidebar1, (400, 900))
-
+screen_tint=pg.transform.scale(pg.image.load('side_bar.jpeg'), (720, 720))
+screen_tint.set_alpha(60)
 
 def draw(turt,set_1,set_2,set_3,tile_size=50,):
     win.blit(screen, (0, 0))
+    win.blit(screen_tint, (15,15))
     win.blit(grid, (15, 15))
     win.blit(sidebar, (800, 0))
     
