@@ -42,21 +42,27 @@ class turtle:
 
 class tower:
     def __init__(self, x, y):
-        self.x = x
-        self.y = y
-        self.image = pygame.image.load("tower.png")
+        self.image = pygame.image.load("ice.png")
+        self.rect = self.image.get_rect(topleft=(x, y))
+
+    def draw(self, win):
+        win.blit(self.image, self.rect.topleft)
 
 class icetower:
     def __init__(self, x, y):
-        self.x = x
-        self.y = y
-        self.image = pygame.image.load("icetower.png")
+        self.image = pygame.image.load("tower.png")
+        self.rect = self.image.get_rect(topleft=(x, y))
+
+    def draw(self, win):
+        win.blit(self.image, self.rect.topleft)
 
 class box:
     def __init__(self, x, y):
-        self.x = x
-        self.y = y
         self.image = pygame.image.load("box.png")
+        self.rect = self.image.get_rect(topleft=(x, y))
+
+    def draw(self, win):
+        win.blit(self.image, self.rect.topleft)
 
 class mouse:
     def __init__(self, x, y):
@@ -64,38 +70,36 @@ class mouse:
         self.y = y
         self.image = pygame.transform.scale_by(pygame.image.load("mouse.png"), 0.3)
 
-    def darw(self, win):
+    def draw(self, win):
         win.blit(self.image, (self.x, self.y))
 
-    
 class box_1:
     def __init__(self):
-        self.image=pygame.Rect(0, 0, 50, 50)
-        self.image_2=pygame.transform.scale(pygame.image.load('ice.png'),(100,100))
+        self.image_2 = pygame.transform.scale(pygame.image.load('ice.png'), (100, 100))
+        self.rect = self.image_2.get_rect(topleft=(900, 100))
 
     def draw(self, win):
-        pygame.draw.rect(win, 'black', (900, 100, 100, 100), 0)
-        win.blit(self.image_2, (900, 100))
+        pygame.draw.rect(win, 'black', self.rect, 0)
+        win.blit(self.image_2, self.rect.topleft)
 
 class box_2:
     def __init__(self):
-        self.image=pygame.Rect(0, 0, 50, 50)
-        self.image_2=pygame.transform.scale(pygame.image.load('tower.png'), (100, 100))
+        self.image_2 = pygame.transform.scale(pygame.image.load('tower.png'), (100, 100))
+        self.rect = self.image_2.get_rect(topleft=(900, 250))
 
     def draw(self, win):
-        pygame.draw.rect(win, 'black', (900, 250, 100, 100), 0)
-        win.blit(self.image_2, (900, 250))
+        pygame.draw.rect(win, 'black', self.rect, 0)
+        win.blit(self.image_2, self.rect.topleft)
 
 class box_3:
     def __init__(self):
-        self.image=pygame.Rect(0, 0, 50, 50)
-        self.image_2=pygame.transform.scale_by(pygame.image.load('box.png'), 0.4)
+        self.image_2 = pygame.transform.scale_by(pygame.image.load('box.png'), 0.4)
+        self.rect = self.image_2.get_rect(topleft=(900, 400))
 
     def draw(self, win):
-        pygame.draw.rect(win, 'black', (900, 400, 100, 100), 0)
-        win.blit(self.image_2, (895, 415))
+        pygame.draw.rect(win, 'black', self.rect, 0)
+        win.blit(self.image_2, self.rect.topleft)
 
 # class gem:
 #     def __init__(self):
-#         pygame.rect = pygame.rect(0, 0, 50, 50)
-
+#         pygame.rect = pygame.rect(0, 0, 50, 50)d
