@@ -40,29 +40,38 @@ class turtle:
     def lazer(self):
         pass
 
-class tower:
-    def __init__(self, x, y):
-        self.image = pygame.image.load("ice.png")
-        self.rect = self.image.get_rect(topleft=(x, y))
-
-    def draw(self, win):
-        win.blit(self.image, self.rect.topleft)
-
 class icetower:
     def __init__(self, x, y):
-        self.image = pygame.image.load("tower.png")
-        self.rect = self.image.get_rect(topleft=(x, y))
+        self.image = pygame.image.load("ice.png")
+        self.image_2=pygame.transform.scale(self.image, (120, 80))
+        self.rect = self.image_2.get_rect(topleft=(x, y))
 
-    def draw(self, win):
-        win.blit(self.image, self.rect.topleft)
+    def update_hitbox(self, x, y):
+        self.rect=pygame.Rect(self.x-20, self.y-20, 140, 120)
+
+    def update_position(self, x, y):
+        self.x, self.y = x, y
+        self.rect.topleft = (self.x, self.y)
+
+class tower:
+    def __init__(self, x, y):
+        self.image = pygame.image.load("tower.png")
+        self.image_2=pygame.transform.scale(self.image, (200, 100))
+        self.rect = self.image_2.get_rect(topleft=(x, y))
+
+    def update_position(self, x, y):
+        self.x, self.y = x, y
+        self.rect.topleft = (self.x, self.y)
 
 class box:
     def __init__(self, x, y):
         self.image = pygame.image.load("box.png")
-        self.rect = self.image.get_rect(topleft=(x, y))
+        self.image_2=pygame.transform.scale(self.image, (120, 80))
+        self.rect = self.image_2.get_rect(topleft=(x, y))
 
-    def draw(self, win):
-        win.blit(self.image, self.rect.topleft)
+    def update_position(self, x, y):
+        self.x, self.y = x, y
+        self.rect.topleft = (self.x, self.y)
 
 class mouse:
     def __init__(self, x, y):
