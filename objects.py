@@ -4,13 +4,17 @@ import math
 class turtle:
     def __init__(self, x, y):
         self.origanl_image = pygame.image.load("turtle.png")
-        self.image2 = pygame.transform.scale_by(self.origanl_image, 0.15)
-        self.image = self.image2
+        self.image_2 = pygame.transform.scale_by(self.origanl_image, 0.15)
+        self.image = self.image_2
         self.rect = self.image.get_rect()
         self.center_x = self.rect.centerx
         self.center_y = self.rect.centery
         self.speed = 5
         self.angle = 0
+
+    def update_position(self, x, y):
+        self.x, self.y = x, y
+        self.rect.center = (self.x, self.y)
 
 
     def move_forward(self, speed):
@@ -42,12 +46,9 @@ class turtle:
 
 class icetower:
     def __init__(self, x, y):
-        self.image = pygame.image.load("ice.png")
+        self.image = pygame.image.load("icetower.png")
         self.image_2=pygame.transform.scale(self.image, (120, 80))
         self.rect = self.image_2.get_rect(topleft=(x, y))
-
-    def update_hitbox(self, x, y):
-        self.rect=pygame.Rect(self.x-20, self.y-20, 140, 120)
 
     def update_position(self, x, y):
         self.x, self.y = x, y
@@ -84,8 +85,8 @@ class mouse:
 
 class box_1:
     def __init__(self):
-        self.image_2 = pygame.transform.scale(pygame.image.load('ice.png'), (100, 100))
-        self.rect = self.image_2.get_rect(topleft=(900, 100))
+        self.image_2 = pygame.transform.scale(pygame.image.load('icetower.png'), (100, 100))
+        self.rect = self.image_2.get_rect(topleft=(820, 50))
 
     def draw(self, win):
         pygame.draw.rect(win, 'black', self.rect, 0)
@@ -94,7 +95,7 @@ class box_1:
 class box_2:
     def __init__(self):
         self.image_2 = pygame.transform.scale(pygame.image.load('tower.png'), (100, 100))
-        self.rect = self.image_2.get_rect(topleft=(900, 250))
+        self.rect = self.image_2.get_rect(topleft=(950, 50))
 
     def draw(self, win):
         pygame.draw.rect(win, 'black', self.rect, 0)
@@ -102,13 +103,112 @@ class box_2:
 
 class box_3:
     def __init__(self):
-        self.image_2 = pygame.transform.scale_by(pygame.image.load('box.png'), 0.4)
-        self.rect = self.image_2.get_rect(topleft=(900, 400))
+        self.image_2 = pygame.transform.scale(pygame.image.load('box.png'), (100,100))
+        self.rect = self.image_2.get_rect(topleft=(820, 200))
 
     def draw(self, win):
         pygame.draw.rect(win, 'black', self.rect, 0)
         win.blit(self.image_2, self.rect.topleft)
 
-# class gem:
-#     def __init__(self):
-#         pygame.rect = pygame.rect(0, 0, 50, 50)d
+class box_4:
+    def __init__(self):
+        self.image_2 = pygame.transform.scale(pygame.image.load('gem_1.png'), (100,100))
+        self.rect = self.image_2.get_rect(topleft=(950, 200))
+
+    def draw(self, win):
+        pygame.draw.rect(win, 'black', self.rect, 0)
+        win.blit(self.image_2, self.rect.topleft)
+
+class box_5:
+    def __init__(self):
+        self.image_2 = pygame.transform.scale(pygame.image.load('gem_2.png'), (100,100))
+        self.rect = self.image_2.get_rect(topleft=(820, 350))
+
+    def draw(self, win):
+        pygame.draw.rect(win, 'black', self.rect, 0)
+        win.blit(self.image_2, self.rect.topleft)
+
+class box_6:
+    def __init__(self):
+        self.image_2 = pygame.transform.scale(pygame.image.load('gem_3.png'), (100,100))
+        self.rect = self.image_2.get_rect(topleft=(950, 350))
+
+    def draw(self, win):
+        pygame.draw.rect(win, 'black', self.rect, 0)
+        win.blit(self.image_2, self.rect.topleft)
+
+class box_7:
+    def __init__(self):
+        self.image_2 = pygame.transform.scale(pygame.image.load('gem_4.png'), (100,100))
+        self.rect = self.image_2.get_rect(topleft=(820, 500))
+
+    def draw(self, win):
+        pygame.draw.rect(win, 'black', self.rect, 0)
+        win.blit(self.image_2, self.rect.topleft)
+
+class box_8:
+    def __init__(self):
+        self.image_2 = pygame.transform.scale(pygame.image.load('turtle.png'), (100,100))
+        self.rect = self.image_2.get_rect(topleft=(950, 500))
+
+    def draw(self, win):
+        pygame.draw.rect(win, 'black', self.rect, 0)
+        win.blit(self.image_2, self.rect.topleft)
+
+class box_9:
+    def __init__(self):
+        self.image_2 = pygame.transform.scale(pygame.image.load('trash.png'), (100,100))
+        self.rect = self.image_2.get_rect(topleft=(820, 650))
+
+    def draw(self, win):
+        pygame.draw.rect(win, 'black', self.rect, 0)
+        win.blit(self.image_2, self.rect.topleft)
+
+class box_10:
+    def __init__(self):
+        self.image_2 = pygame.transform.scale(pygame.image.load('save.png'), (100,100))
+        self.rect = self.image_2.get_rect(topleft=(950, 650))
+
+    def draw(self, win):
+        pygame.draw.rect(win, 'black', self.rect, 0)
+        win.blit(self.image_2, self.rect.topleft)
+
+class gem_1:
+    def __init__(self, x, y):
+        self.image = pygame.image.load("gem_1.png")
+        self.image_2=pygame.transform.scale(self.image, (100, 100))
+        self.rect = self.image_2.get_rect(topleft=(x, y))
+
+    def update_position(self, x, y):
+        self.x, self.y = x, y
+        self.rect.topleft = (self.x, self.y)
+
+class gem_2:
+    def __init__(self, x, y):
+        self.image = pygame.image.load("gem_2.png")
+        self.image_2=pygame.transform.scale(self.image, (100, 100))
+        self.rect = self.image_2.get_rect(topleft=(x, y))
+
+    def update_position(self, x, y):
+        self.x, self.y = x, y
+        self.rect.topleft = (self.x, self.y)
+
+class gem_3:
+    def __init__(self, x, y):
+        self.image = pygame.image.load("gem_3.png")
+        self.image_2=pygame.transform.scale(self.image, (100, 100))
+        self.rect = self.image_2.get_rect(topleft=(x, y))
+
+    def update_position(self, x, y):
+        self.x, self.y = x, y
+        self.rect.topleft = (self.x, self.y)
+
+class gem_4:
+    def __init__(self, x, y):
+        self.image = pygame.image.load("gem_4.png")
+        self.image_2=pygame.transform.scale(self.image, (100, 100))
+        self.rect = self.image_2.get_rect(topleft=(x, y))
+
+    def update_position(self, x, y):
+        self.x, self.y = x, y
+        self.rect.topleft = (self.x, self.y)
