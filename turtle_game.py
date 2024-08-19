@@ -1,5 +1,6 @@
 import pygame as pg
 from objects import turtle, tower, icetower, box, mouse, box_1, box_2, box_3, box_4,box_5,box_6,box_7,box_8,box_9,box_10,gem_1,gem_2,gem_3,gem_4
+from main_menu import main
 
 pg.init()
 win = pg.display.set_mode((1100, 750))
@@ -82,7 +83,7 @@ def draw(set_1, set_2, set_3,set_4,set_5,set_6,set_7,set_8,set_9,set_10, mouse, 
     
     pg.display.update()
 
-def main():
+def map_editor():
     running = True
     move_count = 0
     turn_left = 0
@@ -153,7 +154,8 @@ def main():
                             print("Map saved successfully")
                         except IOError as e:
                             print(f"Error saving map: {e}")
-                
+                    running=False
+                    main()
 
             elif event.type == pg.MOUSEBUTTONUP:
                 if dragging and selected_object:
@@ -177,7 +179,7 @@ def main():
 
         mouse.x, mouse.y = pg.mouse.get_pos()
         draw(set_1, set_2, set_3,set_4,set_5,set_6,set_7,set_8,set_9,set_10, mouse, objects, selected_object)
-        
+
+       
     pg.quit()
 
-main()

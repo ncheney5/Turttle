@@ -212,3 +212,11 @@ class gem_4:
     def update_position(self, x, y):
         self.x, self.y = x, y
         self.rect.topleft = (self.x, self.y)
+
+class selection_box:
+    def __init__(self, x, y,z,q):
+        self.size=(z,q)
+        self.rect = pygame.Rect(x, y,self.size[0], self.size[1])
+    
+    def draw(self, win, color):
+        pygame.draw.rect(win, color, self.rect, 0)
