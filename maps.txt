@@ -1,3 +1,13 @@
 map_name,hello
 map_name,hello
 map_name,hello
+269,198,icetower.png
+547,278,gem_2.png
+map_name,helo
+278,193,box.png
+453,97,gem_1.png
+496,281,tower.png
+map_name,why
+373,371,gem_2.png
+36,42,turtle.png
+map_name,yes

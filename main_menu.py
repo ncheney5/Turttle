@@ -1,7 +1,6 @@
 import pygame as pg
 import time as t
 from objects import turtle, tower, icetower, box, mouse, box_1, box_2, box_3, box_4,box_5,box_6,box_7,box_8,box_9,box_10,gem_1,gem_2,gem_3,gem_4, selection_box
-from turtle_game import map_editor
 
 pg.init()
 win = pg.display.set_mode((1100, 750))
@@ -92,7 +91,8 @@ def menu():
                     elif cards:
                         pass
                 if box_2.rect.collidepoint(mouse.x, mouse.y):
-                    map_editor()
+                    run=False
+                    state=2
                 if box_3.rect.collidepoint(mouse.x, mouse.y):
                     if cards:
                         cards=False
@@ -116,5 +116,5 @@ def menu():
         draw(box_1, box_2, box_3, box_4, box_5,cards,txt,funtions)
 
     
-
+    return state
     pg.quit()

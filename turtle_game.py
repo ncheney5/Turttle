@@ -154,6 +154,7 @@ def map_editor():
                         except IOError as e:
                             print(f"Error saving map: {e}")
                     running=False
+                    state=1
 
             elif event.type == pg.MOUSEBUTTONUP:
                 if dragging and selected_object:
@@ -178,6 +179,6 @@ def map_editor():
         mouse.x, mouse.y = pg.mouse.get_pos()
         draw(set_1, set_2, set_3,set_4,set_5,set_6,set_7,set_8,set_9,set_10, mouse, objects, selected_object)
 
-       
+    return state   
     pg.quit()
 
