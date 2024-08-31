@@ -65,7 +65,7 @@ def draw(box_1, box_2, box_3, box_4, box_5,cards,txt,funtions):
     
     pg.display.update()
 
-def main():
+def menu():
     box_1=selection_box(125,190,400,250)
     box_2=selection_box(575,190,400,250)
     box_3=selection_box(75,475,250,250)
@@ -92,7 +92,6 @@ def main():
                     elif cards:
                         pass
                 if box_2.rect.collidepoint(mouse.x, mouse.y):
-                    run=False
                     map_editor()
                 if box_3.rect.collidepoint(mouse.x, mouse.y):
                     if cards:
