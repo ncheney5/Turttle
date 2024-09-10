@@ -2,7 +2,7 @@
 # This is the main file that will be run to start the program
 from main_menu import menu
 from turtle_game import map_editor
-from game_play2 import game
+# from game_play2 import game
 
 state=1
 play=True
